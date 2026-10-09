@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Авдар кейс нээлт</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='6' fill='%230b0f24'/%3E%3Cg fill='none' stroke='%23f0b949' stroke-width='2.2'%3E%3Crect x='6' y='6' width='16' height='16' rx='1.5'/%3E%3Crect x='6' y='6' width='16' height='16' rx='1.5' transform='rotate(45 14 14)'/%3E%3C/g%3E%3Ccircle cx='14' cy='14' r='3.2' fill='%23f4522c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="shell" id="app">
+  <header class="top">
+    <div class="top-in">
+      <button type="button" class="brand" data-act="nav" data-view="cases" aria-label="Авдар, нүүр хуудас">
+        <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="6" y="6" width="16" height="16" rx="1.5"/><rect x="6" y="6" width="16" height="16" rx="1.5" transform="rotate(45 14 14)"/><circle cx="14" cy="14" r="3.2"/></svg>
+        <span>АВДАР</span>
+      </button>
+      <nav class="tabs" aria-label="Үндсэн цэс">
+        <button type="button" data-act="nav" data-view="cases">Авдрууд</button>
+        <button type="button" data-act="nav" data-view="inv">Агуулах <span class="badge num" data-inv-n hidden></span></button>
+        <button type="button" data-act="nav" data-view="bt">Тулаан</button>
+        <button type="button" data-act="nav" data-view="up">Ахиулах</button>
+        <button type="button" data-act="nav" data-view="log">Түүх</button>
+      </nav>
+      <div class="wallet">
+        <button type="button" class="icon-btn" id="mute-btn" data-act="mute" aria-label="Дууг хаах" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l5 4V6l-5 4Z"/><g class="on"><path d="M16 9.5a4 4 0 0 1 0 5"/><path d="M18.5 7a8 8 0 0 1 0 10"/></g><g class="off"><path d="M16 9.5l5 5M21 9.5l-5 5"/></g></svg>
+        </button>
+        <div class="bal" title="Тоглоомын виртуал данс"><span class="bal-l">Данс</span><b class="num" id="bal">…</b></div>
+        <button type="button" class="btn pri sm" data-act="topup" aria-label="Данс цэнэглэх"><span aria-hidden="true">+</span><span class="topup-l">Цэнэглэх</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="view"></main>
+
+  <footer class="foot">Виртуал мөнгөөр тоглодог загварчлал. Бодит төлбөр авахгүй, бодит шагнал олгохгүй.</footer>
+
+  <nav class="dock" aria-label="Үндсэн цэс">
+    <button type="button" data-act="nav" data-view="cases"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11V9a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v2"/><path d="M3 11h18v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M10 11v3h4v-3"/></svg>Авдрууд</button>
+    <button type="button" data-act="nav" data-view="inv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16l-1.2 11a1 1 0 0 1-1 .9H6.2a1 1 0 0 1-1-.9Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Агуулах<span class="badge num" data-inv-n hidden></span></button>
+    <button type="button" data-act="nav" data-view="bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4L19 14M5 4v4L15 18M19 4h-4l-3.5 3.5M19 4v4l-3.5 3.5M9 14l-4 4M13 20l6-6M5 20l-2-2"/></svg>Тулаан</button>
+    <button type="button" data-act="nav" data-view="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16V8M8.5 11.5L12 8l3.5 3.5"/></svg>Ахиулах</button>
+    <button type="button" data-act="nav" data-view="log"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg>Түүх</button>
+  </nav>
+</div>
+
+<dialog id="dlg-top" aria-labelledby="top-t">
+  <form class="dlg" id="top-form" novalidate>
+    <h2 id="top-t">Данс цэнэглэх</h2>
+    <p>Энэ бол тоглоомын виртуал мөнгө. Бодит төлбөр хийгдэхгүй, бодит мөнгө болгож авах боломжгүй.</p>
+    <div class="chips" role="group" aria-label="Бэлэн дүн">
+      <button type="button" class="chip num" data-act="preset" data-a="10000">10,000</button>
+      <button type="button" class="chip num" data-act="preset" data-a="50000">50,000</button>
+      <button type="button" class="chip num" data-act="preset" data-a="100000">100,000</button>
+      <button type="button" class="chip num" data-act="preset" data-a="500000">500,000</button>
+      <button type="button" class="chip num" data-act="preset" data-a="1000000">1,000,000</button>
+    </div>
+    <div class="dlg-f">
+      <label for="top-amt">Дүн, төгрөгөөр</label>
+      <input type="text" id="top-amt" inputmode="numeric" autocomplete="off" value="50,000">
+      <p class="err" id="top-err" hidden></p>
+    </div>
+    <div class="dlg-a">
+      <button type="button" class="btn ghost" data-act="dlgClose">Болих</button>
+      <button type="submit" class="btn pri">Цэнэглэх</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-ask" aria-labelledby="ask-t">
+  <div class="dlg">
+    <h2 id="ask-t"></h2>
+    <p id="ask-p"></p>
+    <div class="dlg-a">
+      <button type="button" class="btn ghost" data-act="dlgClose">Болих</button>
+      <button type="button" class="btn pri" id="ask-ok" data-act="askOk"></button>
+    </div>
+  </div>
+</dialog>
+
+<div id="toasts" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/art.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
